@@ -1,0 +1,57 @@
+{
+  "name": "@momo/server",
+  "version": "1.0.0",
+  "description": "node serve",
+  "keywords": [
+    "node",
+    "node.js",
+    "koa"
+  ],
+  "author": "zhangxinggang",
+  "main": "dist/index.js",
+  "types": "index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node ./scripts/copy-non-code-assets.js",
+    "dev": "nodemon --watch . --ext ts,json --exec ts-node --transpile-only ./scripts/start.ts",
+    "serve": "ts-node --transpile-only ./scripts/start.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "nodemonConfig": {
+    "delay": "2500",
+    "ignore": [
+      "dist/*",
+      "doc/*",
+      "node_modules/*",
+      "logs/*"
+    ]
+  },
+  "dependencies": {
+    "@log4js-node/smtp": "^1.1.0",
+    "dotenv": "^8.2.0",
+    "glob": "^7.1.6",
+    "http-proxy-middleware": "^1.0.6",
+    "http2": "^3.3.6",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.0",
+    "koa-body": "^7.0.0",
+    "koa-compress": "^3.0.0",
+    "koa-connect": "^2.1.0",
+    "koa-favicon": "^2.1.0",
+    "koa-helmet": "^4.0.0",
+    "koa-router": "^7.4.0",
+    "koa-send": "^5.0.1",
+    "koa2-cors": "^2.0.6",
+    "lodash": "^4.17.21",
+    "log4js": "^6.3.0",
+    "merge": "^2.1.1",
+    "node-rsa": "^1.1.1",
+    "upath": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/glob": "^9.0.0",
+    "@types/node": "^24.9.0",
+    "nodemon": "^2.0.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

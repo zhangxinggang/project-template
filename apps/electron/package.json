@@ -1,0 +1,35 @@
+{
+  "name": "@momo/electron",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "zhangxinggang",
+  "main": "master/main/index.js",
+  "scripts": {
+    "electron-dev": "node ./scripts/dev.js",
+    "prod": "node ./scripts/prod.js",
+    "release-linux": "npm run prod && electron-builder --config ./scripts/build/electron-builder-linux-mac.json --publish always",
+    "release-snap": "npm run prod && electron-builder --config ./scripts/build/electron-builder-snap.json --publish never",
+    "release-win": "npm run prod && electron-builder --config ./scripts/build/electron-builder-win.json --publish always",
+    "release-win-arm64": "npm run prod && electron-builder --config ./scripts/build/electron-builder-win-arm64.json --publish always",
+    "start": "react-scripts start"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@momo/server": "workspace:*",
+    "better-sqlite3": "12.5.0",
+    "typeorm": "^0.3.25"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "chalk": "^2.4.2",
+    "chokidar": "^3.5.3",
+    "electron": "39.8.2",
+    "electron-builder": "26.9.0"
+  }
+}
